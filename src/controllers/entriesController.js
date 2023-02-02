@@ -47,10 +47,24 @@ const updateOne = async(req, res) => {
     }
 }
 
+const deleteOne = async(req, res) => {
+    const entryId = req.params.entryId;
+
+    try {
+        const result = await entriesService.deleteOne(entryId);
+        res.status(201).json(result);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error.message);
+    }
+}
+
+
 router.get('/', getAll);
 router.post('/', createOne);
 router.get('/:entryId', getOne);
 router.patch('/:entryId', updateOne);
+router.delete('/:entryId', deleteOne);
 
 
 module.exports = router;

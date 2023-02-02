@@ -23,4 +23,9 @@ const updateOne = async (entryId, content) => {
     return exam[1][0].dataValues;
 }
 
-module.exports = { getAll, getOne, createOne, updateOne };
+const deleteOne = async (entryId) => {
+    await Entry.destroy({ where: { id: entryId } });
+    return { status: 'success' };
+}
+
+module.exports = { getAll, getOne, createOne, updateOne, deleteOne };
