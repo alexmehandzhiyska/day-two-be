@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const models = require('./models/index');
+const models = require('../models/index.js');
 
 const routes = require('./routes');
 

@@ -1,4 +1,4 @@
-const Entry = require('../models/index').Entry;
+const Entry = require('../../models/index').Entry;
 
 const getAll = async () => {
     const data = await Entry.findAll({});
