@@ -24,6 +24,7 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 app.use('/api', routes);
+app.use(express.static('src/public'));
 
 models.sequelize.sync()
     .then(() => {
