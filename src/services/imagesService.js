@@ -12,6 +12,11 @@ const createOne = async (filePath, entryId) => {
     return image;
 }
 
+const deleteOne = async (imgId) => {
+    await Image.destroy({ where: { id: imgId } });
+    return { status: 'success' };t 
+}
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, path.join(__dirname, '../public/images/'));
@@ -25,4 +30,4 @@ const storage = multer.diskStorage({
 
 const uploadImages = multer({ storage }).array('entry-img');
 
-module.exports = { getByEntryId, uploadImages, createOne };
+module.exports = { getByEntryId, uploadImages, createOne, deleteOne };

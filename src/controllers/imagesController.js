@@ -13,9 +13,8 @@ const getByEntryId = async(req, res) => {
     }
 };
 
-const addImages = async(req, res) => {
+const createMany = async(req, res) => {
     const entryId = req.params.entryId;
-    let filePath = '';
 
     imagesService.uploadImages(req, res, (err) => {
         if (err) {
@@ -35,7 +34,20 @@ const addImages = async(req, res) => {
     });
 };
 
-router.post('/:entryId', addImages);
+const deleteOne = async(req, res) => {
+    const imgId = req.params.imgId;
+
+    try {
+        const result = await imagesService.deleteOne(imgId);
+        res.status(201).json(result);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error.message);
+    }
+}
+
+router.post('/:entryId', createMany);
 router.get('/:entryId', getByEntryId);
+router.delete('/:imgId', deleteOne);
 
 module.exports = router;
