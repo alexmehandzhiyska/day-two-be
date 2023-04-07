@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const models = require('./models/index');
+const models = require('../models/index.js');
 
 const routes = require('./routes');
 
@@ -24,6 +24,7 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 app.use('/api', routes);
+app.use(express.static('src/public'));
 
 models.sequelize.sync()
     .then(() => {

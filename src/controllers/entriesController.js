@@ -9,7 +9,7 @@ const getAll = async(req, res) => {
     } catch (error) {
         res.status(400).json(error.message);
     }
-}
+};
 
 const getOne = async(req, res) => {
     const entryId = req.params.entryId;
@@ -22,7 +22,7 @@ const getOne = async(req, res) => {
         console.log(error);
         res.status(400).json(error.message);
     }
-}
+};
 
 const createOne = async(req, res) => {
     try {
@@ -65,6 +65,5 @@ router.post('/', createOne);
 router.get('/:entryId', getOne);
 router.patch('/:entryId', updateOne);
 router.delete('/:entryId', deleteOne);
-
 
 module.exports = router;
