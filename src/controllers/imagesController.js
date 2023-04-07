@@ -21,18 +21,26 @@ const createMany = async(req, res) => {
             return res.status(500).json(err);
         }
 
-        const files = req.files;
+        let files = req.files;
         
-        files.forEach(file => {
-            // Add "path" property to match db key.
-            file.path = `/images/${file.filename}`;
-
-            imagesService.createOne(file.path, entryId);
-        });
-
-        return res.status(200).send(files);
+        updateFileProps(files, entryId)
+            .then(files => {
+                return res.status(200).send(files);
+            })
     });
 };
+
+const updateFileProps = async (files, entryId) => {
+    for (let file of files) {
+        // Add "path" property to match db key.
+        file.path = `/images/${file.filename}`;
+
+        const img = await imagesService.createOne(file.path, entryId);
+        file.id = img.id
+    }
+
+    return files;
+}
 
 const deleteOne = async(req, res) => {
     const imgId = req.params.imgId;
