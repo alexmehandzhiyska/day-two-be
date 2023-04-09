@@ -37,3 +37,11 @@ To start the app, clone down this repo to your computer, and then follow the ste
     ```
     npm start
     ```
+
+## Endpoints
+
+All of the back-end endpoints of the app are described in a dedicated swagger. In order to start it, start the project and visit the following link:
+ 
+```
+http://localhost:{CHOSEN_PORT}/api/docs
+```
