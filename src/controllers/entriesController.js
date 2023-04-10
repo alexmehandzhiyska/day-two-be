@@ -4,7 +4,6 @@ const entriesService = require('../services/entriesService');
 const getAll = async(req, res) => {
     try {
         const entries = await entriesService.getAll();
-        console.log(entries);
         res.status(200).json(entries);
     } catch (error) {
         res.status(400).json(error.message);

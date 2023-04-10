@@ -3,7 +3,12 @@ const multer = require('multer');
 const path = require('path');
 
 const getByEntryId = async (entryId) => {
-    const data = await Image.findAll({ where: { entry_id: entryId } });
+    const data = await Image.findAll({ 
+        where: { entry_id: entryId }, 
+        order: [
+            ['id', 'DESC'],
+        ]
+    });
     return data.map(img => img.dataValues);
 }
 
@@ -14,7 +19,7 @@ const createOne = async (filePath, entryId) => {
 
 const deleteOne = async (imgId) => {
     await Image.destroy({ where: { id: imgId } });
-    return { status: 'success' };t 
+    return { status: 'success' };
 }
 
 const storage = multer.diskStorage({
