@@ -4,7 +4,7 @@ const path = require('path');
 
 const getByEntryId = async (entryId) => {
     const data = await Image.findAll({ 
-        where: { entry_id: entryId }, 
+        where: { entryId }, 
         order: [
             ['id', 'DESC'],
         ]
@@ -13,7 +13,7 @@ const getByEntryId = async (entryId) => {
 }
 
 const createOne = async (filePath, entryId) => {
-    const image = await Image.create({ path: filePath, entry_id: entryId });
+    const image = await Image.create({ path: filePath, entryId });
     return image;
 }
 

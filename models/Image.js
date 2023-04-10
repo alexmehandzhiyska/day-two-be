@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: true,
     },
-    entry_id: {
+    entryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -38,7 +38,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Image',
     timestamps: true,
-    underscored: true
   });
   return Image;
 };

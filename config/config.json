@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "admin",
-    "database": "day-two",
+    "database": "day-two-app",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

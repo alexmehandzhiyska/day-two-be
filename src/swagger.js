@@ -261,14 +261,14 @@ const swaggerOptions = {
                 {
                     id: 1,
                     path: "/images/1680870854369.png",
-                    entry_id: 3,
+                    entryId: 3,
                     createdAt: "2023-04-06 15:34:14.378+03",
                     updatedAt: "2023-04-07 15:34:14.378+03"
                 },
                 {
                     id: 2,
                     path: "/images/1684771054362.png",
-                    entry_id: 3,
+                    entryId: 3,
                     createdAt: "2023-03-20 15:34:14.378+03",
                     updatedAt: "2023-03-22 15:34:14.378+03"
                 },
@@ -467,7 +467,7 @@ const swaggerOptions = {
     },
     Image: {
       type: "object",
-      required: ["id", "path", "entry_id", "createdAt", "updatedAt"],
+      required: ["id", "path", "entryId", "createdAt", "updatedAt"],
       properties: {
         id: {
           type: "integer",
@@ -476,7 +476,7 @@ const swaggerOptions = {
         path: {
           type: "string",
         },
-        entry_id: {
+        entryId: {
           type: "integer",
           format: "int64",
         },

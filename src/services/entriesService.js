@@ -4,7 +4,7 @@ const getAll = async () => {
     const data = await Entry.findAll({});
     const entries = data
         .map(entry => entry.dataValues)
-        .sort((a, b) => b.id - a.id);
+        .sort((a, b) => b.createdAt - a.createdAt);
     return entries;
 }
 
